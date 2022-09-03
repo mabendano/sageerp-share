@@ -3,7 +3,7 @@
     <q-header elevated>
       <q-toolbar class="bg-teal-6 text-white">
         <q-toolbar-title>
-          SAGEVictoria - Share 1.0
+          SAGEVictoria - Share 1.01
         </q-toolbar-title>
       </q-toolbar>
     </q-header>

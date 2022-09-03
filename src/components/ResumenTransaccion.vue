@@ -10,7 +10,7 @@
 		</div>
 		<q-table virtual-scroll :v-model:pagination="pagination" :rows-per-page-options="[0]" :virtual-scroll-item-size="48" :virtual-scroll-sticky-size-start="48" :virtual-scroll-sticky-size-end="32"
 			:columns="columnas" no-data-label="No hay datos disponibles" :rows="resumen.contenido"	row-key="index"
-			style="height:calc(100vh - 179px);max-width:99vw" hide-header >
+			style="height:calc(100vh - 179px);max-width:100vw" hide-header >
 
 			<template v-slot:body="props">
 				<q-tr :props="props" :class="`${props.rowIndex % 2 === 0 ? 'bg-white' : 'bg-grey-3'}`">

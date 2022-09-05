@@ -55,6 +55,7 @@
 <script setup>
 
 import { onMounted, ref } from 'vue';
+import { QSpinnerFacebook, useQuasar } from 'quasar';
 import { useApiSupabase } from '../services/supabase/useApiSupabase';
 import { useMensajes } from '../services/useMensajes';
 
@@ -64,6 +65,7 @@ import { useMensajes } from '../services/useMensajes';
         	required: true,
     	},
   	});
+	const q = useQuasar();
   	const pagination = ref({rowsPerPage: 0});
 	const columnas = [{name:'id', label:'', field:'id', sortable:true, align:'left', style:'width: 100px',}];
 	const resumen = ref({
@@ -77,8 +79,9 @@ import { useMensajes } from '../services/useMensajes';
 	const { mostrarMensaje } = useMensajes();
 
 	onMounted(async () => {
+		q.loading.show({spinner:QSpinnerFacebook, message:"Consultando.."});
 		const respuesta = await selectByIdSupabase('resumen_compartido', 'contenido', props.id);
-		console.log(respuesta)
+		q.loading.hide();
 		if(respuesta.mensaje.length > 0){
 			mostrarMensaje('Error', respuesta.mensaje);
 			return;
